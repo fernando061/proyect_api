@@ -1,0 +1,12 @@
+E:\CODIGO\ApiTienda\Core\bin\Debug\net6.0\Core.deps.json
+E:\CODIGO\ApiTienda\Core\bin\Debug\net6.0\Core.dll
+E:\CODIGO\ApiTienda\Core\bin\Debug\net6.0\Core.pdb
+E:\CODIGO\ApiTienda\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+E:\CODIGO\ApiTienda\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\CODIGO\ApiTienda\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+E:\CODIGO\ApiTienda\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+E:\CODIGO\ApiTienda\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+E:\CODIGO\ApiTienda\Core\obj\Debug\net6.0\Core.dll
+E:\CODIGO\ApiTienda\Core\obj\Debug\net6.0\refint\Core.dll
+E:\CODIGO\ApiTienda\Core\obj\Debug\net6.0\Core.pdb
+E:\CODIGO\ApiTienda\Core\obj\Debug\net6.0\ref\Core.dll

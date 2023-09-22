@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{19A21142-6E19-49EF-8342-A0997BFE091D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infraestructure\Infrastructure.csproj", "{71687A6F-5B81-451C-8067-C5F75441E03C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{F338B8EE-9123-4557-BC0D-6E5849E0583F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19A21142-6E19-49EF-8342-A0997BFE091D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A21142-6E19-49EF-8342-A0997BFE091D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A21142-6E19-49EF-8342-A0997BFE091D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A21142-6E19-49EF-8342-A0997BFE091D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71687A6F-5B81-451C-8067-C5F75441E03C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71687A6F-5B81-451C-8067-C5F75441E03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71687A6F-5B81-451C-8067-C5F75441E03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71687A6F-5B81-451C-8067-C5F75441E03C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F338B8EE-9123-4557-BC0D-6E5849E0583F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F338B8EE-9123-4557-BC0D-6E5849E0583F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F338B8EE-9123-4557-BC0D-6E5849E0583F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F338B8EE-9123-4557-BC0D-6E5849E0583F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BAC38B9B-DE56-4488-B7AB-69DA5AE0C4C6}
+	EndGlobalSection
+EndGlobal
