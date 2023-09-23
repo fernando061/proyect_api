@@ -45,5 +45,26 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
                  .HasMaxLength(40)
                  .IsRequired();
 
+        builder
+        .HasMany(p => p.Roles)
+        .WithMany(p => p.User)
+        .UsingEntity<UsersRoles>(
+            j => j
+                .HasOne(pt => pt.Rol)
+                .WithMany(t => t.UsersRoles)
+                .HasForeignKey(pt => pt.RolId),
+            j => j
+                .HasOne(pt => pt.User)
+                .WithMany(p => p.UsersRoles)
+                .HasForeignKey(pt => pt.UserId),
+            j =>
+            {
+                j.HasKey(t => new { t.UserId, t.RolId });
+            });
+
+        builder.HasMany(p => p.RefreshTokens)
+            .WithOne(p => p.User)
+            .HasForeignKey(p => p.UserId);
+
     }
 }

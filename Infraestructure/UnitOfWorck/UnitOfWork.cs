@@ -14,6 +14,7 @@ public class UnitOfWork : IUnitOfWork
     private readonly TiendaContext _context;
     private IUserRepository _user;
     private IProductRepository _product;
+    private IRolRepository _rol;
 
     public UnitOfWork(TiendaContext context)
     {
@@ -44,6 +45,19 @@ public class UnitOfWork : IUnitOfWork
             return _product;
         }
     }
+    public IRolRepository Rol
+    {
+        get
+        {
+            if (_rol == null)
+            {
+                _rol = new RolRepository(_context);
+            }
+            return _rol;
+        }
+    }
+
+  
 
     public void BeginTransaction()
     {

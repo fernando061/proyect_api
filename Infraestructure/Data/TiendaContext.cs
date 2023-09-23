@@ -11,6 +11,8 @@ public class TiendaContext : DbContext
 
     public DbSet<User> User { get; set; }
     public DbSet<Product> Product { get; set; }
+    public DbSet<Rol> Rol { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

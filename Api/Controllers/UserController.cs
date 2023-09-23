@@ -1,6 +1,7 @@
 ﻿using Api.Dtos;
 using Api.Services;
 using API.Controllers;
+using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -12,11 +13,13 @@ public class UserController : BaseApiController
 {
     private readonly IUserService _userService;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
 
-    public UserController(IUserService userService, IUnitOfWork unitOfWork)
+    public UserController(IUserService userService, IUnitOfWork unitOfWork,IMapper mapper)
     {
         _userService = userService;
         _unitOfWork = unitOfWork;
+        _mapper = mapper;
     }
 
     [HttpPost("register")]
@@ -36,6 +39,7 @@ public class UserController : BaseApiController
     public async Task<IActionResult> GetTokenAsync(LoginDto model)
     {
         var result = await _userService.GetTokenAsync(model);
+        SetRefreshTokenInCookie(result.RefreshToken);
         return Ok(result);
     }
 
@@ -69,7 +73,7 @@ public class UserController : BaseApiController
     {
         var user = _unitOfWork.User.Find(f => f.Email == email).FirstOrDefault();
         if (user == null) return NoContent();
-        return Ok(new { message = "Usuario eliminado", data = user });
+        return Ok(new { message = "Usuario encontrado", data = _mapper.Map<UserDto>(user) });
     }
 
     [HttpPut("UpdatePassword")]
@@ -85,12 +89,35 @@ public class UserController : BaseApiController
 
 
 
-    //[HttpPost("addrole")]
-    //public async Task<IActionResult> AddRoleAsync(AddRoleDto model)
-    //{
-    //    var result = await _userService.AddRoleAsync(model);
-    //    return Ok(result);
-    //}
+    [HttpPost("addrole")]
+    [AllowAnonymous]
+    public async Task<IActionResult> AddRoleAsync(AddRoleDto model)
+    {
+        var result = await _userService.AddRoleAsync(model);
+        return Ok(result);
+    }
+
+    [HttpPost("refresh-token")]
+    [AllowAnonymous]
+    public async Task<IActionResult> RefreshToken()
+    {
+        var refreshToken = Request.Cookies["refreshToken"];
+        var response = await _userService.RefreshTokenAsync(refreshToken);
+        if (!string.IsNullOrEmpty(response.RefreshToken))
+            SetRefreshTokenInCookie(response.RefreshToken);
+        return Ok(response);
+    }
+
+
+    private void SetRefreshTokenInCookie(string refreshToken)
+    {
+        var cookieOptions = new CookieOptions
+        {
+            HttpOnly = true,
+            Expires = DateTime.UtcNow.AddDays(10),
+        };
+        Response.Cookies.Append("refreshToken", refreshToken, cookieOptions);
+    }
 
 
 }

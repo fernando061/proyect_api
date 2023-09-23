@@ -7,6 +7,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 namespace Api.Services;
 
@@ -42,12 +43,12 @@ public class UserService : IUserService
 
         if (usuarioExiste == null)
         {
-            //var rolPredeterminado = _unitOfWork.Roles
-            //                        .Find(u => u.Nombre == Autorizacion.rol_predeterminado.ToString())
-            //                        .First();
+            var rolPredeterminado = _unitOfWork.Rol
+                                    .Find(u => u.Name == Autorization.rol_predeterminado.ToString())
+                                    .First();
             try
             {
-                //usuario.Roles.Add(rolPredeterminado);
+                usuario.Roles.Add(rolPredeterminado);
                 _unitOfWork.User.Add(usuario);
                 await _unitOfWork.SaveAsync();
 
@@ -88,9 +89,25 @@ public class UserService : IUserService
             datosUsuarioDto.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
             datosUsuarioDto.Email = usuario.Email;
             datosUsuarioDto.UserName = usuario.Email;
-            //datosUsuarioDto.Roles = usuario.Roles
-            //                                .Select(u => u.Nombre)
-            //                                .ToList();
+            datosUsuarioDto.Roles = usuario.Roles
+                                            .Select(u => u.Name)
+                                            .ToList();
+
+            if (usuario.RefreshTokens.Any(a => a.IsActive))
+            {
+                var activeRefreshToken = usuario.RefreshTokens.Where(a => a.IsActive == true).FirstOrDefault();
+                datosUsuarioDto.RefreshToken = activeRefreshToken.Token;
+                datosUsuarioDto.RefreshTokenExpiration = activeRefreshToken.Expires;
+            }
+            else
+            {
+                var refreshToken = CreateRefreshToken();
+                datosUsuarioDto.RefreshToken = refreshToken.Token;
+                datosUsuarioDto.RefreshTokenExpiration = refreshToken.Expires;
+                usuario.RefreshTokens.Add(refreshToken);
+                _unitOfWork.User.Update(usuario);
+                await _unitOfWork.SaveAsync();
+            }
             return datosUsuarioDto;
         }
         datosUsuarioDto.EstaAutenticado = false;
@@ -98,58 +115,118 @@ public class UserService : IUserService
         return datosUsuarioDto;
     }
 
-    //public async Task<string> AddRoleAsync(AddRoleDto model)
-    //{
+    public async Task<DatosUsuarioDto> RefreshTokenAsync(string refreshToken)
+    {
+        var datosUsuarioDto = new DatosUsuarioDto();
 
-    //    var usuario = await _unitOfWork.Usuarios
-    //                .GetByUsernameAsync(model.Username);
+        var usuario = await _unitOfWork.User
+                        .GetByRefreshTokenAsync(refreshToken);
 
-    //    if (usuario == null)
-    //    {
-    //        return $"No existe algún usuario registrado con la cuenta {model.Username}.";
-    //    }
+        if (usuario == null)
+        {
+            datosUsuarioDto.EstaAutenticado = false;
+            datosUsuarioDto.Mensaje = $"El token no pertenece a ningún usuario.";
+            return datosUsuarioDto;
+        }
+
+        var refreshTokenBd = usuario.RefreshTokens.Single(x => x.Token == refreshToken);
+
+        if (!refreshTokenBd.IsActive)
+        {
+            datosUsuarioDto.EstaAutenticado = false;
+            datosUsuarioDto.Mensaje = $"El token no está activo.";
+            return datosUsuarioDto;
+        }
+        //Revocamos el Refresh Token actual y
+        refreshTokenBd.Revoked = DateTime.UtcNow;
+        //generamos un nuevo Refresh Token y lo guardamos en la Base de Datos
+        var newRefreshToken = CreateRefreshToken();
+        usuario.RefreshTokens.Add(newRefreshToken);
+        _unitOfWork.User.Update(usuario);
+        await _unitOfWork.SaveAsync();
+        //Generamos un nuevo Json Web Token 😊
+        datosUsuarioDto.EstaAutenticado = true;
+        JwtSecurityToken jwtSecurityToken = CreateJwtToken(usuario);
+        datosUsuarioDto.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+        datosUsuarioDto.Email = usuario.Email;
+        datosUsuarioDto.UserName = usuario.Name;
+        datosUsuarioDto.Roles = usuario.Roles
+                                        .Select(u => u.Name)
+                                        .ToList();
+        datosUsuarioDto.RefreshToken = newRefreshToken.Token;
+        datosUsuarioDto.RefreshTokenExpiration = newRefreshToken.Expires;
+        return datosUsuarioDto;
+    }
 
 
-    //    var resultado = _passwordHasher.VerifyHashedPassword(usuario, usuario.Password, model.Password);
+    private RefreshToken CreateRefreshToken()
+    {
+        var randomNumber = new byte[32];
+        using (var generator = RandomNumberGenerator.Create())
+        {
+            generator.GetBytes(randomNumber);
+            return new RefreshToken
+            {
+                Token = Convert.ToBase64String(randomNumber),
+                Expires = DateTime.UtcNow.AddDays(10),
+                Created = DateTime.UtcNow
+            };
+        }
+    }
 
-    //    if (resultado == PasswordVerificationResult.Success)
-    //    {
+
+    public async Task<string> AddRoleAsync(AddRoleDto model)
+    {
+
+        var usuario = await _unitOfWork.User
+                    .GetByUsernameAsync(model.Email);
+
+        if (usuario == null)
+        {
+            return $"No existe algún usuario registrado con la cuenta {model.Email}.";
+        }
 
 
-    //        var rolExiste = _unitOfWork.Roles
-    //                                    .Find(u => u.Nombre.ToLower() == model.Role.ToLower())
-    //                                    .FirstOrDefault();
+        var resultado = _passwordHasher.VerifyHashedPassword(usuario, usuario.Password, model.Password);
 
-    //        if (rolExiste != null)
-    //        {
-    //            var usuarioTieneRol = usuario.Roles
-    //                                        .Any(u => u.Id == rolExiste.Id);
+        if (resultado == PasswordVerificationResult.Success)
+        {
 
-    //            if (usuarioTieneRol == false)
-    //            {
-    //                usuario.Roles.Add(rolExiste);
-    //                _unitOfWork.Usuarios.Update(usuario);
-    //                await _unitOfWork.SaveAsync();
-    //            }
 
-    //            return $"Rol {model.Role} agregado a la cuenta {model.Username} de forma exitosa.";
-    //        }
+            var rolExiste = _unitOfWork.Rol
+                                        .Find(u => u.Name.ToLower() == model.Role.ToLower())
+                                        .FirstOrDefault();
 
-    //        return $"Rol {model.Role} no encontrado.";
-    //    }
-    //    return $"Credenciales incorrectas para el usuario {usuario.Username}.";
-    //}
+            if (rolExiste != null)
+            {
+                var usuarioTieneRol = usuario.Roles
+                                            .Any(u => u.Id == rolExiste.Id);
+
+                if (usuarioTieneRol == false)
+                {
+                    usuario.Roles.Add(rolExiste);
+                    _unitOfWork.User.Update(usuario);
+                    await _unitOfWork.SaveAsync();
+                }
+
+                return $"Rol {model.Role} agregado a la cuenta {model.Email} de forma exitosa.";
+            }
+
+            return $"Rol {model.Role} no encontrado.";
+        }
+        return $"Credenciales incorrectas para el usuario {usuario.Email}.";
+    }
 
 
 
     private JwtSecurityToken CreateJwtToken(User usuario)
     {
-        //var roles = usuario.Roles;
+        var roles = usuario.Roles;
         var roleClaims = new List<Claim>();
-        //foreach (var role in roles)
-        //{
-        //    roleClaims.Add(new Claim("roles", role.Nombre));
-        //}
+        foreach (var role in roles)
+        {
+            roleClaims.Add(new Claim("roles", role.Name));
+        }
         var claims = new[]
         {
                                 new Claim(JwtRegisteredClaimNames.Sub, usuario.Email),

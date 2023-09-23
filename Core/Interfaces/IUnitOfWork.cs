@@ -9,6 +9,7 @@ public interface IUnitOfWork
 {
     IProductRepository Product { get; }
     IUserRepository User { get; }
+    IRolRepository Rol { get; }
     Task<int> SaveAsync();
     void Dispose();
 

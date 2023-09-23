@@ -8,7 +8,7 @@ namespace Core.Entities;
     public class Rol
     {
         public Guid Id { get; set; }
-        public string Nombre { get; set; }
+        public string Name { get; set; }
         public ICollection<User> User { get; set; } = new HashSet<User>();
         public ICollection<UsersRoles> UsersRoles { get; set; }
     }

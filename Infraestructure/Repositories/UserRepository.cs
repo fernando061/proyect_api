@@ -15,11 +15,20 @@ public class UserRepository : GenericRepository<User>,IUserRepository
     {
     }
 
+    public async Task<User> GetByRefreshTokenAsync(string refreshToken)
+    {
+        return await _context.User
+                   .Include(u => u.Roles)
+                   .Include(u => u.RefreshTokens)
+                   .FirstOrDefaultAsync(u => u.RefreshTokens.Any(t => t.Token == refreshToken));
+    }
+
     public async Task<User> GetByUsernameAsync(string email)
     {
         return await _context.User
-                            //.Include(u => u.Roles)
+                            .Include(u => u.Roles)
                             .FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
     }
+
 }
 
