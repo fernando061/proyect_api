@@ -15,3 +15,11 @@ E:\CODIGO\ApiTienda\Infraestructure\obj\Debug\net6.0\refint\Infrastructure.dll
 E:\CODIGO\ApiTienda\Infraestructure\obj\Debug\net6.0\Infrastructure.pdb
 E:\CODIGO\ApiTienda\Infraestructure\obj\Debug\net6.0\Infrastructure.genruntimeconfig.cache
 E:\CODIGO\ApiTienda\Infraestructure\obj\Debug\net6.0\ref\Infrastructure.dll
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.csproj.AssemblyReference.cache
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.AssemblyInfoInputs.cache
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.AssemblyInfo.cs
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.dll
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\ref\Infrastructure.dll
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.pdb
