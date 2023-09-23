@@ -15,3 +15,4 @@ public class RefreshTokenConfiguration : IEntityTypeConfiguration<RefreshToken>
         builder.ToTable("RefreshToken");
 
     }
+}
