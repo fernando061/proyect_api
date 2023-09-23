@@ -95,3 +95,13 @@ E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\AspNetCoreRateLimit.dll
 E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.dll
 E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.csproj.AssemblyReference.cache
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.AssemblyInfoInputs.cache
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.AssemblyInfo.cs
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.csproj.CoreCompileInputs.cache
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cs
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cache
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.dll
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\ref\Api.dll
+D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.pdb

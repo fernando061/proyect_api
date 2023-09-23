@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CODIGO\\ApiTienda\\Api\\Api.csproj": {}
+    "D:\\proyectosBack\\proyect_api\\Api\\Api.csproj": {}
   },
   "projects": {
-    "E:\\CODIGO\\ApiTienda\\Api\\Api.csproj": {
+    "D:\\proyectosBack\\proyect_api\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CODIGO\\ApiTienda\\Api\\Api.csproj",
+        "projectUniqueName": "D:\\proyectosBack\\proyect_api\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "E:\\CODIGO\\ApiTienda\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "E:\\CODIGO\\ApiTienda\\Api\\obj\\",
+        "projectPath": "D:\\proyectosBack\\proyect_api\\Api\\Api.csproj",
+        "packagesPath": "C:\\Users\\ferna\\.nuget\\packages\\",
+        "outputPath": "D:\\proyectosBack\\proyect_api\\Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ferna\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\CODIGO\\ApiTienda\\Infraestructure\\Infrastructure.csproj": {
-                "projectPath": "E:\\CODIGO\\ApiTienda\\Infraestructure\\Infrastructure.csproj"
+              "D:\\proyectosBack\\proyect_api\\Infraestructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\proyectosBack\\proyect_api\\Infraestructure\\Infrastructure.csproj"
               }
             }
           }
@@ -98,25 +94,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\CODIGO\\ApiTienda\\Core\\Core.csproj": {
+    "D:\\proyectosBack\\proyect_api\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CODIGO\\ApiTienda\\Core\\Core.csproj",
+        "projectUniqueName": "D:\\proyectosBack\\proyect_api\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "E:\\CODIGO\\ApiTienda\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "E:\\CODIGO\\ApiTienda\\Core\\obj\\",
+        "projectPath": "D:\\proyectosBack\\proyect_api\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\ferna\\.nuget\\packages\\",
+        "outputPath": "D:\\proyectosBack\\proyect_api\\Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ferna\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -157,25 +149,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\CODIGO\\ApiTienda\\Infraestructure\\Infrastructure.csproj": {
+    "D:\\proyectosBack\\proyect_api\\Infraestructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CODIGO\\ApiTienda\\Infraestructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\proyectosBack\\proyect_api\\Infraestructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "E:\\CODIGO\\ApiTienda\\Infraestructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "E:\\CODIGO\\ApiTienda\\Infraestructure\\obj\\",
+        "projectPath": "D:\\proyectosBack\\proyect_api\\Infraestructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\ferna\\.nuget\\packages\\",
+        "outputPath": "D:\\proyectosBack\\proyect_api\\Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ferna\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -189,8 +177,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\CODIGO\\ApiTienda\\Core\\Core.csproj": {
-                "projectPath": "E:\\CODIGO\\ApiTienda\\Core\\Core.csproj"
+              "D:\\proyectosBack\\proyect_api\\Core\\Core.csproj": {
+                "projectPath": "D:\\proyectosBack\\proyect_api\\Core\\Core.csproj"
               }
             }
           }
@@ -246,7 +234,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
