@@ -105,3 +105,4 @@ D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssembl
 D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.dll
 D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\ref\Api.dll
 D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.pdb
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\libman.json
