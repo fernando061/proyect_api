@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
@@ -79,9 +81,9 @@ namespace Infrastructure.Data.Migrations
                     UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Token = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Expires = table.Column<DateTime>(type: "datetime", nullable: false),
-                    Created = table.Column<DateTime>(type: "datetime", nullable: false),
-                    Revoked = table.Column<DateTime>(type: "datetime", nullable: true)
+                    Expires = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Created = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Revoked = table.Column<DateTime>(type: "datetime(6)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -121,6 +123,16 @@ namespace Infrastructure.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Rol",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("4abe9c57-d1ae-483c-850b-312ca04e5a78"), "Empleado" },
+                    { new Guid("9dad84bd-48e3-4004-9c22-5d8b9c34b5dc"), "Administrador" },
+                    { new Guid("acfb60ee-9ab7-4674-a358-c25a2e2f4fbd"), "Gerente" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_RefreshToken_UserId",

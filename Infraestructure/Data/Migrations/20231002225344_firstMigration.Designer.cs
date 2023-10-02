@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(TiendaContext))]
-    [Migration("20231002032821_firstMigration")]
+    [Migration("20231002225344_firstMigration")]
     partial class firstMigration
     {
         /// <inheritdoc />
@@ -52,13 +52,13 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("Created")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("Expires")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("Revoked")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Token")
                         .HasColumnType("longtext");
@@ -88,6 +88,23 @@ namespace Infrastructure.Data.Migrations
                         .HasName("PrimaryKey_IdRol");
 
                     b.ToTable("Rol", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("9dad84bd-48e3-4004-9c22-5d8b9c34b5dc"),
+                            Name = "Administrador"
+                        },
+                        new
+                        {
+                            Id = new Guid("acfb60ee-9ab7-4674-a358-c25a2e2f4fbd"),
+                            Name = "Gerente"
+                        },
+                        new
+                        {
+                            Id = new Guid("4abe9c57-d1ae-483c-850b-312ca04e5a78"),
+                            Name = "Empleado"
+                        });
                 });
 
             modelBuilder.Entity("Core.Entities.User", b =>
