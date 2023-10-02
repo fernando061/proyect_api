@@ -106,3 +106,17 @@ D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.dll
 D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\ref\Api.dll
 D:\proyectosBack\proyect_api\Api\obj\Debug\net6.0\Api.pdb
 E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\libman.json
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Supabase.Functions.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Supabase.Gotrue.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\JWTDecoder.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\System.ComponentModel.Composition.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\MimeMapping.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Supabase.Postgrest.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Supabase.Realtime.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Supabase.Core.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Supabase.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Supabase.Storage.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\System.Reactive.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Websocket.Client.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\MySqlConnector.dll
+E:\CODIGO\ApiTienda\Api\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll

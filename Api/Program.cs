@@ -4,11 +4,22 @@ using Api.Extencions;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
+using Supabase;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
+builder.Services.AddScoped<Supabase.Client>(_ =>
+    new Supabase.Client(
+        builder.Configuration["SupabaseUrl"],
+        builder.Configuration["SupabaseKey"],
+        new SupabaseOptions
+        {
+            AutoRefreshToken = true,
+            AutoConnectRealtime = true
+        }));
+
 
 // Add services to the container.
 builder.Services.ConfigureCors();
@@ -22,13 +33,18 @@ builder.Services.AddJwt(builder.Configuration);
 
 
 
-
 builder.Services.AddDbContext<TiendaContext>(options =>
 {
-    //var connectionString = configuration.GetConnectionString("AppDb");
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-
+    var serverVersion = new MySqlServerVersion(new Version(8, 0, 28));
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), serverVersion);
 });
+
+//builder.Services.AddDbContext<TiendaContext>(options =>
+//{
+//    //var connectionString = configuration.GetConnectionString("AppDb");
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+
+//});
 
 
 var app = builder.Build();
