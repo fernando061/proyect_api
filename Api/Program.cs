@@ -4,21 +4,22 @@ using Api.Extencions;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Supabase;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
-builder.Services.AddScoped<Supabase.Client>(_ =>
-    new Supabase.Client(
-        builder.Configuration["SupabaseUrl"],
-        builder.Configuration["SupabaseKey"],
-        new SupabaseOptions
-        {
-            AutoRefreshToken = true,
-            AutoConnectRealtime = true
-        }));
+//builder.Services.AddScoped<Supabase.Client>(_ =>
+//    new Supabase.Client(
+//        builder.Configuration["SupabaseUrl"],
+//        builder.Configuration["SupabaseKey"],
+//        new SupabaseOptions
+//        {
+//            AutoRefreshToken = true,
+//            AutoConnectRealtime = true
+//        }));
 
 
 // Add services to the container.
@@ -36,7 +37,10 @@ builder.Services.AddJwt(builder.Configuration);
 builder.Services.AddDbContext<TiendaContext>(options =>
 {
     var serverVersion = new MySqlServerVersion(new Version(8, 0, 28));
-    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), serverVersion);
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString),
+        //serverVersion,
+        mySqlOptions => mySqlOptions.SchemaBehavior(MySqlSchemaBehavior.Ignore)) ;
 });
 
 //builder.Services.AddDbContext<TiendaContext>(options =>

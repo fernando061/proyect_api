@@ -23,3 +23,12 @@ D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.csp
 D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.dll
 D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\ref\Infrastructure.dll
 D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.pdb
+D:\proyectosBack\proyect_api\Infraestructure\bin\Debug\net6.0\Infrastructure.deps.json
+D:\proyectosBack\proyect_api\Infraestructure\bin\Debug\net6.0\Infrastructure.runtimeconfig.json
+D:\proyectosBack\proyect_api\Infraestructure\bin\Debug\net6.0\Infrastructure.dll
+D:\proyectosBack\proyect_api\Infraestructure\bin\Debug\net6.0\ref\Infrastructure.dll
+D:\proyectosBack\proyect_api\Infraestructure\bin\Debug\net6.0\Infrastructure.pdb
+D:\proyectosBack\proyect_api\Infraestructure\bin\Debug\net6.0\Core.dll
+D:\proyectosBack\proyect_api\Infraestructure\bin\Debug\net6.0\Core.pdb
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete
+D:\proyectosBack\proyect_api\Infraestructure\obj\Debug\net6.0\Infrastructure.genruntimeconfig.cache

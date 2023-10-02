@@ -10,7 +10,8 @@ public class RolConfiguration : IEntityTypeConfiguration<Rol>
         builder.ToTable("Rol");
        
         builder.Property(k => k.Id)
-                .HasDefaultValueSql("NEWID()")
+                  //.HasDefaultValueSql("NEWID()")
+                  //.HasDefaultValueSql("uuid()")//.HasDefaultValueSql("UUID()")    
                 .IsRequired();
 
         builder.HasKey(k => k.Id)

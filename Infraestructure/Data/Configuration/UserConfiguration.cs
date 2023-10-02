@@ -15,7 +15,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.ToTable("USER", "dbo");
 
         builder.Property(k => k.Id)
-                .HasDefaultValueSql("NEWID()")
+                  //.HasDefaultValueSql("NEWID()")
+                  //.HasDefaultValueSql("uuid()")//.HasDefaultValueSql("UUID()")
                 .IsRequired();
 
         builder.HasKey(k => k.Id)

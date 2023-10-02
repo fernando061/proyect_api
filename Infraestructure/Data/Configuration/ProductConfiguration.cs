@@ -15,7 +15,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.ToTable("PRODUCT", "dbo");
 
         builder.Property(k => k.Id)
-                .HasDefaultValueSql("NEWID()")
+                //.HasDefaultValueSql("NEWID()") sql server
+                //.HasDefaultValueSql("uuid()")//.HasDefaultValueSql("UUID()") //mysql
                 .IsRequired();
 
         builder.HasKey(k => k.Id)
